@@ -19,7 +19,7 @@ export default async function DashboardPage({
   if (!session) redirect("/");
 
   const q = searchParams?.q || "";
-  const offset = Number(searchParams?.offset) || 1;
+  const offset = Number(searchParams?.offset) || 0;
 
   return (
     <main className="flex flex-col justify-between h-screen mx-auto w-full">
