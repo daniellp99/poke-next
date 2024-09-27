@@ -1,11 +1,12 @@
+import { LoaderCircle } from "lucide-react";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
 
 import PokemonList from "@/components/pokemon-list";
+import SearchInput from "@/components/search-input";
+import UserDropdown from "@/components/user-dropdown";
 
 import { auth } from "@/auth";
-import SearchInput from "@/components/search-input";
-import { LoaderCircle } from "lucide-react";
 
 export default async function DashboardPage({
   searchParams,
@@ -23,8 +24,9 @@ export default async function DashboardPage({
 
   return (
     <main className="flex flex-col justify-between h-screen mx-auto w-full">
-      <header className="h-12 w-full p-1">
+      <header className="h-12 max-w-xl w-full p-1 flex gap-1 mx-auto">
         <SearchInput />
+        <UserDropdown session={session} />
       </header>
       <Suspense
         key={offset + q}
